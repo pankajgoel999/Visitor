@@ -1,0 +1,14 @@
+RewriteEngine on
+# If a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+Options -Indexes
+# Otherwise forward it to index.php
+RewriteRule . index.php
+#Options -Indexes
+
+ErrorDocument 403 /customerror
+
+#RewriteRule ^(.*/)*\.svn/ / [F,L]
+
+	
