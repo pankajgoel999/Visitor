@@ -12,6 +12,9 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 ?>
+<script>
+	var BASEURL = "<?=Yii::$app->homeUrl;?>";
+	</script>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -25,7 +28,10 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<div id="loading" style="display:none">
+    <h1 style="font-family: georgia;color:red;">Please wait....</h1>
+    <img id="loading-image" src="<?=Yii::$app->homeUrl?>images/loading.gif" alt="Loading..." />
+</div>
 <div class="wrap">
 <!--
                 <div class="row">

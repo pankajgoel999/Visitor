@@ -21,8 +21,8 @@ $config = [
          'department' => [
             'class' => 'app\modules\department\Moudle',
         ],
-        'public' => [
-            'class' => 'app\modules\public\Moudle',
+        'publicvisitor' => [
+            'class' => 'app\modules\publicvisitor\Moudle',
         ],
     ],
     'defaultRoute'=>'site',
@@ -37,11 +37,22 @@ $config = [
         'Utility' => [
 			'class' => 'app\components\Utility',
 		],
-		 'view' => [
-            'theme' => [
-                'pathMap' => [
-                   '@app/views' => '@vendor/yidas/yii2-adminlte/templates/example'
+		'Boutility' => [
+			'class' => 'app\components\Boutility',
+		],
+		  'assetManager' => [
+            'appendTimestamp' => true,
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'js'=>[]
                 ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js'=>[]
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [],
+                ],
+
             ],
         ],
         'user' => [
@@ -77,13 +88,7 @@ $config = [
             ],
         ],
         'db' => $db,
-          'assetManager' => [
-        'bundles' => [
-            'yidas\adminlte\AdminlteAsset' => [
-                'skin' => 'skin-black',
-            ],
-        ],
-    ],
+         
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

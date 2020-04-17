@@ -755,3 +755,51 @@ div.required label::after {
     box-shadow: 7px 8px 10px #1CA34F;
 
 }
+#imagepreviewsrc img {
+
+    width: 120px !important;
+    height: 120px !important;
+    margin-left: 20%;
+    margin-bottom: 10px;
+
+}
+#message_img {
+
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    align-content: center;
+    background-color: #f75151;
+    border-radius: 9px;
+    padding: 5px;
+    color: #fff;
+   
+
+}
+.btn-file {
+
+    position: relative;
+    overflow: hidden;
+
+}
+.btn-file input[type="file"] {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+
+}
+.text-left {
+  text-align:left !important;
+}
+select, textarea, input {
+
+    box-shadow: 2px 2px 2px #a3f2c6;
+
+}

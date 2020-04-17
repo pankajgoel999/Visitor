@@ -20,28 +20,36 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/bootstrap.min.css',
+        'css/bootstrap.css',
         'css/bootstrap-theme.min.css',
-       // 'css/site.css',
-        'css/default.css'
+        'css/default.css',
+        'css/bootstrap-dateicker.css',
+		'css/datatables.min.css',
+		'css/bootstraptoggle.css',
     ];
     
     public $js = [
 		'js/jquery.min.js',
 		'js/jquery.bxslider.min.js',
         'js/bootstrap.min.js',
+		'js/bootstraptoggle.min.js',
 		'js/common.js',
 		'js/bootstrap-datepicker.js',
         'js/select2.js',
 		'js/popper.js',
 		'js/aes-json-format.js',
 		'js/aes.js',
+        'js/bootstrap-datepicker.js',
+		'js/sweetalert.js',
+		'js/backoffice.js',
 		
 		
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-		
-    ];
+//    public $depends = [
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap\BootstrapAsset',
+//    ];
+    public $jsOptions = array(
+        'position' => \yii\web\View::POS_HEAD
+    );
 }

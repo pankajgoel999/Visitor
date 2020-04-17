@@ -119,5 +119,37 @@ class Utility extends Component {
             $logs->save(); 
 		}
     
+    static function GetAllState() {
+			$connection = Yii::$app->db;
+			$connection->open();
+			$sql ="SELECT DISTINCT(StateId), StateName FROM md_city order by StateName";        
+			$command = $connection->createCommand($sql); 			
+			$result=$command->queryAll();
+			return $result;
+	}
+    
+    static function getupperstring($string){
+        return $string = ucwords(strtolower($string));
+    }
+
+    static function ExtractDistReg($stateid) {
+			$connection = Yii::$app->db;
+			$connection->open();
+			$sql ="Select DISTINCT(DistrictId), DistrictName from md_city where StateId = :stateid";     $command = $connection->createCommand($sql); 			
+			$command->bindValue(':stateid', $stateid); 
+			$result=$command->queryAll();
+			return $result;
+	}
+    
+     static function ExtractCityReg($dist_id) {
+			$connection = Yii::$app->db;
+			$connection->open();
+			$sql ="Select DISTINCT(CityId), CityName from md_city where DistrictId = :dist_id";  
+			$command = $connection->createCommand($sql); 			
+			$command->bindValue(':dist_id', $dist_id); 
+			$result=$command->queryAll();
+			return $result;
+	}
+    
 }
     

@@ -70,11 +70,7 @@ class SiteController extends Controller
         
         return $this->render('registration');
     }
-    public function actionD()
-	{
-		return $this->render('d');
-	}
-
+    
     /**
      * Login action.
      *
@@ -118,10 +114,15 @@ class SiteController extends Controller
             if($model->login()){
              //  echo "<pre>"; print_r(Yii::$app->user->identity); die("@@");
             
-                if (Yii::$app->user->identity->Role_Id == "1"){
+                if (Yii::$app->user->identity->Role_Id == "1" || Yii::$app->user->identity->Role_Id == "2")
+				{
+					$id = Yii::$app->Boutility->encryptString("2");
+                    $url = Yii::$app->homeUrl."admin/default/index?securekey=$id"; 
+							//echo $url; die;
+                }else if (Yii::$app->user->identity->Role_Id == "4"){
                     
                    // die("12322");
-                    $url = Yii::$app->homeUrl."admin";
+                    $url = Yii::$app->homeUrl."publicvisitor";
                 }else {
                     $url = Yii::$app->homeUrl."district";    
                 }

@@ -21,60 +21,61 @@ $this->title = "Login";
 <script type="text/javascript">
 // Using jQuery.
 
-$(function() {
-    $('form').each(function() {
-        $(this).find('input').keypress(function(e) {
-             if(e.which == 10 || e.which == 13) {
-               encForm1();
-            }
-        });
-
-        
-    });
-});
- 
-            var secret="#_ZII_#";
-            
-            <?php
-                require("PhpEncodeFormContents.inc.php");
-                $obj=new PhpEncodeFormContents("#_ZII_#");
-                echo $obj->getBase64encodeJavascriptFunctions();
-                
-            ?>
-                
-            function encForm1(){ 
-                var pwd = $("#loginform-duppassword").val();
-                // alert(pwd);
-				if($.trim($("#captcha").val())==''){
-					$("#captcha").focus();
-					return false;
-				}
-                 if(pwd != ''){
-                    ob('loginform-duppassword');
-					$("#loginform-password").val($("#loginform-duppassword").val());
-					$(":password").remove(); 
+    $(function() {
+        $('form').each(function() {
+            $(this).find('input').keypress(function(e) {
+                 if(e.which == 10 || e.which == 13) {
+                   encForm1();
                 }
-				
-               $("#w0").submit();
-            }
-            function encForm2(){
-                ob('uname2');
-                ob('passwd2');
-				$("#loginform-password").val($("#loginform-duppassword").val());
-				$("#loginform-duppassword").val('');
-				//
-               $$$('demo2').submit();
-            }
-            function $$$(i){
-                return document.getElementById(i);
-            }
-            function ob(i){
-                var val=$$$(i).value;
-                var encrypted = CryptoJS.AES.encrypt(JSON.stringify(val), secret, {format: CryptoJSAesJson}).toString();
-				 
-                $$$(i).value=encrypted;  
-            } 
-        </script>
+            });        
+        });
+    });
+ 
+    var secret="#_ZII_#";
+            
+    <?php
+        require("PhpEncodeFormContents.inc.php");
+        $obj=new PhpEncodeFormContents("#_ZII_#");
+        echo $obj->getBase64encodeJavascriptFunctions();
+    ?>
+                
+    function encForm1(){ 
+        var pwd = $("#loginform-duppassword").val();
+         alert(pwd);
+        if($.trim($("#captcha").val())==''){
+            $("#captcha").focus();
+            return false;
+        }
+         if(pwd != ''){
+            ob('loginform-duppassword');
+            $("#loginform-password").val($("#loginform-duppassword").val());
+            $(":password").remove(); 
+        }
+
+       $("#w0").submit();
+    }
+    
+    function encForm2(){
+        ob('uname2');
+        ob('passwd2');
+        $("#loginform-password").val($("#loginform-duppassword").val());
+        $("#loginform-duppassword").val('');
+        //
+       $$$('demo2').submit();
+    }
+
+    function $$$(i){
+        return document.getElementById(i);
+    }
+
+    function ob(i){
+        var val=$$$(i).value;
+        var encrypted = CryptoJS.AES.encrypt(JSON.stringify(val), secret, {format: CryptoJSAesJson}).toString();
+
+        $$$(i).value=encrypted;  
+    } 
+        
+</script>
 
  
 <style>
@@ -137,7 +138,7 @@ $(function() {
                                             
                       
 				</div>
-  
+  <br>
     <div class="form-check" style="margin: -18px 0 10px 0;">
     <label class="form-check-label">
       <input type="checkbox" class="form-check-input">

@@ -113,3 +113,8 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+#error_main {
+    background-color: #f2dede;
+    color: red;
+    font-weight: bold;
+}
